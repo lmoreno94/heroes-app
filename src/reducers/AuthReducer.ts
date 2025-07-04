@@ -1,7 +1,4 @@
-export const types = {
-    login: '[auth] login',
-    logout: '[auth] logout',
-};
+import { types } from "../types/Auth";
 
 interface AuthAction {
     type: string;
@@ -15,7 +12,7 @@ interface AuthState {
     name?: string;
 }
 
-export const authReducer = (state: AuthState = { logged: false }, action: AuthAction): AuthState => {
+export const AuthReducer = (state: AuthState = { logged: false }, action: AuthAction): AuthState => {
     switch (action.type) {
         case types.login:
             return {
