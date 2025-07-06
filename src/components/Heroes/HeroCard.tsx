@@ -7,7 +7,7 @@ function HeroCard(props: HeroOmitPublisher) {
 	return (
         <div className="col">
             <div className="card" style={{ maxWidth: '10rem' }}>
-                <img src={`./assets/heroes/${id}.jpg`} className="card-img-top" alt={superhero} />
+                <img src={`/heroes/${id}.jpg`} className="card-img-top" alt={superhero} />
                 <h5 className="card-header">{superhero}</h5>
                 <div className="card-body">
                     <p className="card-text">{alter_ego}</p>

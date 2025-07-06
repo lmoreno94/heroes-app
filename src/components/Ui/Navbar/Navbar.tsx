@@ -16,7 +16,7 @@ function Navbar() {
             <div className="navbar-collapse">
                 <div className="navbar-nav">
                     <NavLink
-                        to="/marvel"
+                        to="/dashboard/marvel"
                         className={({ isActive }) =>
                             "nav-item nav-link" + (isActive ? " active" : "")
                         }
@@ -25,7 +25,7 @@ function Navbar() {
                     </NavLink>
 
                     <NavLink
-                        to="/dc"
+                        to="/dashboard/dc"
                         className={({ isActive }) =>
                             "nav-item nav-link" + (isActive ? " active" : "")
                         }
@@ -34,7 +34,7 @@ function Navbar() {
                     </NavLink>
 
                     <NavLink
-                        to="/search"
+                        to="/dashboard/search"
                         className={({ isActive }) =>
                             "nav-item nav-link" + (isActive ? " active" : "")
                         }

@@ -12,11 +12,11 @@ export const routerNavigator: RouteObject[] = [
         element: <h1>Hola Mundo</h1>
     },
     {
-        path: "",
+        path: "dashboard",
         element: <PrivateRoute />,
         children: [
             {
-                path: "dashboard",
+                path: "",
                 element: <DashboardRoutes />,
                 children: [
                     {
