@@ -1,19 +1,10 @@
-import { createContext, type Dispatch } from 'react';
-import type { AuthAction } from '../types/Auth';
+import { createContext } from 'react';
+import type { User } from '../types/User';
+import type { AuthState } from '../types/Auth';
 
-interface AuthState {
-    logged: boolean;
-    name?: string;
+interface AuthContextProps extends AuthState {
+    login: (user: User) => void;
+    logout: () => void;
 }
 
-interface AuthContextProps {
-    user: AuthState;
-    dispatch: Dispatch<AuthAction>;
-}
-
-export const initialState: AuthState = { logged: false };
-
-export const AuthContext = createContext<AuthContextProps>({
-    user: initialState,
-    dispatch: () => null,
-});
+export const AuthContext = createContext<AuthContextProps | undefined>(undefined);
