@@ -1,15 +1,7 @@
 import { Link } from "react-router-dom";
+import type { Hero } from "../../types/Hero";
 
-interface HeroCardProps {
-	id: string;
-	superhero: string;
-	publisher: string;
-	alter_ego: string;
-	first_appearance: string;
-	characters: string;
-}
-
-function HeroList(props: HeroCardProps) {
+function HeroList(props: Hero) {
     const { id, superhero, alter_ego, first_appearance, characters } = props;
 	return (
         <div className="col">
