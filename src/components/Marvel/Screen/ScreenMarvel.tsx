@@ -1,4 +1,4 @@
-import React from "react";
+import HeroList from "../../Heroes/HeroList";
 
 function ScreenMarvel() {
 	return (

@@ -1,17 +1,23 @@
-import { getHeroesByPublisher } from "../../selectors/getHeroesByIdPublisher";
-import type { Hero } from "../../types/Hero";
+import { Link } from "react-router-dom";
+import type { HeroOmitPublisher } from "../../types/Hero";
 
-function HeroCard(props: Hero) {
-    const { publisher } = props;
-    const heroes: Hero[] = getHeroesByPublisher(publisher);
+function HeroCard(props: HeroOmitPublisher) {
+    const { id, superhero, alter_ego, characters, first_appearance } = props;
     
 	return (
-        <div className='row row-cols-1 row-cols-md-3 g-4 border-dark mb-3 animate__animated animate__bounceInLeft'>
-            {
-                heroes.map(hero => (
-                    <HeroCard key={hero.id} {...hero} />
-                ))
-            }
+        <div className="col">
+            <div className="card" style={{ maxWidth: '10rem' }}>
+                <img src={`./assets/heroes/${id}.jpg`} className="card-img-top" alt={superhero} />
+                <h5 className="card-header">{superhero}</h5>
+                <div className="card-body">
+                    <p className="card-text">{alter_ego}</p>
+                    {alter_ego !== characters && <p className='card-text'>{characters}</p>}
+                    <p className="text-muted">{first_appearance}</p>
+                    <Link to={`./heroe/${id}`}>
+                        Más...
+                    </Link>
+                </div>
+            </div>
         </div>
     );
 }

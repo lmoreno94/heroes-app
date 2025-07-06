@@ -1,13 +1,12 @@
-import React, { useContext } from "react";
 import {
 	Navigate,
 	useParams,
-	UNSAFE_NavigationContext,
+	useNavigate
 } from "react-router-dom";
 import { getHeroeById } from "../../selectors/getHeroeById";
 
 function HeroScreen() {
-    const navigator = useContext(UNSAFE_NavigationContext).navigator;
+    const navigation = useNavigate();
 	const { heroeId } = useParams<{ heroeId: string }>();
 	if (!heroeId) {
 		return <Navigate to="/" />;
@@ -19,11 +18,12 @@ function HeroScreen() {
 	}
 
 	const handleReturn = () => {
-		if (history.length <= 2) {
-			history.push("/");
-		} else {
-			history.goBack();
-		}
+		// if (history.length <= 2) {
+		// 	history.push("/");
+		// } else {
+		// 	history.goBack();
+		// }
+		navigation(-1);
 	};
 
 	const { superhero, publisher, alter_ego, first_appearance, characters } =

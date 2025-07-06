@@ -6,3 +6,6 @@ export interface Hero {
     first_appearance:string;
     characters: string;
 }
+
+export type HeroOmitPublisher = Omit<Hero, 'publisher'>;
+export type HeroPublisher = Pick<Hero, 'publisher'>;
