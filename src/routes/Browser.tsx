@@ -1,33 +1,36 @@
 import { type RouteObject } from "react-router-dom";
 import { lazy } from "react";
 import { PrivateRoute } from "./PrivateRoute";
+import { DashboardRoutes } from "./DashboardRoutes";
 
 const Login = lazy(() => import('../components/Login'));
+const Marvel = lazy(() => import('../components/Marvel/Screen'))
 
 export const routerNavigator: RouteObject[] = [
 	{
-		path: "",
-		children: [
-			{
-				path: "",
-				element: <h1>Hola Mundo</h1>
-			},
+        path: "home",
+        element: <h1>Hola Mundo</h1>
+    },
+    {
+        path: "",
+        element: <PrivateRoute />,
+        children: [
             {
-				element: <PrivateRoute />,
+                path: "dashboard",
+                element: <DashboardRoutes />,
                 children: [
                     {
-                        path: "home",
-                        element: <h1>Home Screen</h1>
+                        path: "marvel",
+                        element: <Marvel />
                     }
                 ]
-			},
-			{
-				path: "login",
-				element: <Login />
-			}
-		],
-		
-	}
+            }
+        ]
+    },
+    {
+        path: "login",
+        element: <Login />
+    }
 ];
 
 //https://stackoverflow.com/questions/72198467/config-route-in-react-router-dom-v6

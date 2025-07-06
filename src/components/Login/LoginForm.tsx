@@ -12,7 +12,7 @@ function LoginForm() {
 			email: "juan@example.com",
 		};
 		login(fakeUser);
-        navigate("/home");
+        navigate("/dashboard");
 	};
 	return (
 		<div className="container mt-5">
